@@ -1,0 +1,40 @@
+# aggregator/requirements.txt
+# Flask web framework
+Flask
+Werkzeug
+
+# Database drivers
+pymongo
+cassandra-driver
+
+# Caching
+redis
+
+# Environment management
+python-dotenv
+
+# HTTP requests (if needed for external APIs)
+requests
+
+# Data processing
+pandas
+numpy
+
+# Date/time utilities
+python-dateutil
+
+# File handling
+Werkzeug
+
+# Logging (built-in, but some extras)
+colorlog
+
+# Development/testing utilities
+pytest
+pytest-flask
+
+# CORS support (if frontend needed)
+Flask-CORS
+
+# JSON handling improvements
+ujson

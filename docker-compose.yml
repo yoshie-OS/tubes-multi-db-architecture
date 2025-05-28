@@ -1,0 +1,90 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  # MongoDB - Document Store
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: cafe_analytics
+    volumes:
+      - mongodb_data:/data/db
+      - ./databases/mongodb/init:/docker-entrypoint-initdb.d
+    networks:
+      - bigdata-network
+
+  # Cassandra - Columnar Store
+  cassandra:
+    image: cassandra:4.1
+    container_name: cassandra
+    restart: always
+    ports:
+      - "9042:9042"
+    environment:
+      CASSANDRA_CLUSTER_NAME: "BigDataCluster"
+      CASSANDRA_DC: "datacenter1"
+      CASSANDRA_RACK: "rack1"
+      CASSANDRA_ENDPOINT_SNITCH: "GossipingPropertyFileSnitch"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+      - ./databases/cassandra/init:/docker-entrypoint-initdb.d
+    networks:
+      - bigdata-network
+    healthcheck:
+      test: ["CMD-SHELL", "cqlsh -e 'describe cluster'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis for caching (optional but recommended)
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - bigdata-network
+
+  # Flask Aggregator Service
+  aggregator:
+    build:
+      context: ./aggregator
+      dockerfile: Dockerfile
+    container_name: flask-aggregator
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/cafe_analytics?authSource=admin
+      CASSANDRA_HOSTS: cassandra
+      REDIS_HOST: redis
+      FLASK_ENV: development
+    depends_on:
+      cassandra:
+        condition: service_healthy
+      mongodb:
+        condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      - ./aggregator:/app
+    networks:
+      - bigdata-network
+
+volumes:
+  mongodb_data:
+  cassandra_data:
+  redis_data:
+
+networks:
+  bigdata-network:
+    driver: bridge
