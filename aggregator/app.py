@@ -19,8 +19,6 @@ app = Flask(__name__)
 app.register_blueprint(scenarios_bp)
 app.register_blueprint(data_bp)
 
-app = Flask(__name__)
-
 # Database connections (will be initialized in main)
 mongo_client = None
 mongo_db = None

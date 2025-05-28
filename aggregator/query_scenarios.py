@@ -31,102 +31,197 @@ class DataLoader:
         self.mongo_db = mongo_db
         self.cassandra_session = cassandra_session
 
+    # def load_transactions_csv(self, csv_content):
+    #     """Load transactions CSV to all 5 Cassandra tables"""
+    #     try:
+    #         print("Starting CSV parsing...")
+    #         csv_reader = csv.DictReader(io.StringIO(csv_content))
+    #         transactions = []
+
+    #         for i, row in enumerate(csv_reader):
+    #             print(f"Processing row {i}: {row}")
+
+    #             # Parse date from YYYY-MM-DD HH:MM:SS format
+    #             try:
+    #                 timestamp = datetime.strptime(row['timestamp'], '%Y-%m-%d %H:%M:%S')
+    #                 print(f"Parsed timestamp: {timestamp}")
+    #             except Exception as e:
+    #                 print(f"Error parsing timestamp: {e}")
+    #                 raise
+
+    #             date_only = timestamp.date()
+
+    #             transaction = {
+    #                 'transaction_id': int(row['transaction_id']),
+    #                 'timestamp': timestamp,
+    #                 'date': date_only,
+    #                 'customer_id': int(row['customer_id']),
+    #                 'employee_id': int(row['employee_id']),
+    #                 'total_amount': float(row['total_amount']),
+    #                 'payment_method': row['payment_method']
+    #             }
+    #             transactions.append(transaction)
+    #             print(f"Created transaction object: {transaction}")
+
+    #         print(f"Parsed {len(transactions)} transactions total")
+    #         print("About to create batch queries...")
+
+    #         # Prepare batch statements for each table
+    #         print("Creating batch_queries dictionary...")
+    #         batch_queries = {
+    #             'transactions': "INSERT INTO transactions (transaction_id, timestamp, customer_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)",
+    #             # ... rest of queries
+    #         }
+    #         print("Batch queries created successfully")
+    #         print("Starting database inserts...")
+    #         # Prepare batch statements for each table
+    #         batch_queries = {
+    #             'transactions': "INSERT INTO transactions (transaction_id, timestamp, customer_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)",
+    #             'transactions_by_employee': "INSERT INTO transactions_by_employee (employee_id, timestamp, transaction_id, customer_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)",
+    #             'transactions_by_payment': "INSERT INTO transactions_by_payment (payment_method, timestamp, transaction_id, customer_id, employee_id, total_amount) VALUES (?, ?, ?, ?, ?, ?)",
+    #             'transactions_by_date': "INSERT INTO transactions_by_date (date, timestamp, transaction_id, customer_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    #             'transactions_by_customer': "INSERT INTO transactions_by_customer (customer_id, timestamp, transaction_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)"
+    #         }
+
+    #         print("Starting database inserts...")
+    #         # Insert to all tables
+    #         total_inserted = 0
+    #         for transaction in transactions:
+    #             print(f"Processing transaction {transaction['transaction_id']}")
+
+    #             # 1. Main transactions table
+    #             try:
+    #                 print("Inserting to transactions table...")
+    #                 self.cassandra_session.execute(batch_queries['transactions'], [
+    #                     transaction['transaction_id'],
+    #                     transaction['timestamp'],
+    #                     transaction['customer_id'],
+    #                     transaction['employee_id'],
+    #                     transaction['total_amount'],
+    #                     transaction['payment_method']
+    #                 ])
+    #                 print("✓ transactions table success")
+    #             except Exception as e:
+    #                 print(f"✗ Error in transactions table: {e}")
+    #                 raise
+
+    #             # 2. By employee table
+    #             try:
+    #                 print("Inserting to transactions_by_employee table...")
+    #                 self.cassandra_session.execute(batch_queries['transactions_by_employee'], [
+    #                     transaction['employee_id'],
+    #                     transaction['timestamp'],
+    #                     transaction['transaction_id'],
+    #                     transaction['customer_id'],
+    #                     transaction['total_amount'],
+    #                     transaction['payment_method']
+    #                 ])
+    #                 print("✓ transactions_by_employee table success")
+    #             except Exception as e:
+    #                 print(f"✗ Error in transactions_by_employee table: {e}")
+    #                 raise
+
+    #             # 3. By payment method table
+    #             try:
+    #                 print("Inserting to transactions_by_payment table...")
+    #                 self.cassandra_session.execute(batch_queries['transactions_by_payment'], [
+    #                     transaction['payment_method'],
+    #                     transaction['timestamp'],
+    #                     transaction['transaction_id'],
+    #                     transaction['customer_id'],
+    #                     transaction['employee_id'],
+    #                     transaction['total_amount']
+    #                 ])
+    #                 print("✓ transactions_by_payment table success")
+    #             except Exception as e:
+    #                 print(f"✗ Error in transactions_by_payment table: {e}")
+    #                 raise
+
+    #             # 4. By date table
+    #             try:
+    #                 print("Inserting to transactions_by_date table...")
+    #                 print(f"Parameters: date={transaction['date']}, timestamp={transaction['timestamp']}, transaction_id={transaction['transaction_id']}, customer_id={transaction['customer_id']}, employee_id={transaction['employee_id']}, total_amount={transaction['total_amount']}, payment_method={transaction['payment_method']}")
+    #                 self.cassandra_session.execute(batch_queries['transactions_by_date'], [
+    #                     transaction['date'],
+    #                     transaction['timestamp'],
+    #                     transaction['transaction_id'],
+    #                     transaction['customer_id'],
+    #                     transaction['employee_id'],
+    #                     transaction['total_amount'],
+    #                     transaction['payment_method']
+    #                 ])
+    #                 print("✓ transactions_by_date table success")
+    #             except Exception as e:
+    #                 print(f"✗ Error in transactions_by_date table: {e}")
+    #                 print(f"Query: {batch_queries['transactions_by_date']}")
+    #                 print(f"Params count: {len([transaction['date'], transaction['timestamp'], transaction['transaction_id'], transaction['customer_id'], transaction['employee_id'], transaction['total_amount'], transaction['payment_method']])}")
+    #                 raise
+
+    #             # 5. By customer table
+    #             try:
+    #                 print("Inserting to transactions_by_customer table...")
+    #                 self.cassandra_session.execute(batch_queries['transactions_by_customer'], [
+    #                     transaction['customer_id'],
+    #                     transaction['timestamp'],
+    #                     transaction['transaction_id'],
+    #                     transaction['employee_id'],
+    #                     transaction['total_amount'],
+    #                     transaction['payment_method']
+    #                 ])
+    #                 print("✓ transactions_by_customer table success")
+    #             except Exception as e:
+    #                 print(f"✗ Error in transactions_by_customer table: {e}")
+    #                 raise
+
+    #             total_inserted += 1
+    #             print(f"Completed transaction {transaction['transaction_id']}\n")
+
+    #         print(f"Successfully completed all inserts!")
+    #         return {
+    #             'status': 'success',
+    #             'message': f'Successfully loaded {total_inserted} transactions to all 5 Cassandra tables',
+    #             'tables_populated': ['transactions', 'transactions_by_employee', 'transactions_by_payment', 'transactions_by_date', 'transactions_by_customer']
+    #         }
+
+    #     except Exception as e:
+    #         print(f"Exception caught: {e}")
+    #         logger.error(f"Error loading transactions CSV: {e}")
+    #         return {'status': 'error', 'message': str(e)}
     def load_transactions_csv(self, csv_content):
-        """Load transactions CSV to all 5 Cassandra tables"""
         try:
-            # Parse CSV content
-            csv_reader = csv.DictReader(io.StringIO(csv_content))
-            transactions = []
+            from decimal import Decimal
+            from datetime import datetime
 
-            for row in csv_reader:
-                # Parse date from YYYY-MM-DD format
-                timestamp = datetime.strptime(row['timestamp'], '%Y-%m-%d')
-                date_only = timestamp.date()
+            lines = csv_content.strip().split('\n')
+            data_line = lines[1]
+            parts = data_line.split(',')
 
-                transaction = {
-                    'transaction_id': int(row['transaction_id']),
-                    'timestamp': timestamp,
-                    'date': date_only,
-                    'customer_id': int(row['customer_id']),
-                    'employee_id': int(row['employee_id']),
-                    'total_amount': float(row['total_amount']),
-                    'payment_method': row['payment_method']
-                }
-                transactions.append(transaction)
+            timestamp = datetime.strptime(parts[1], '%Y-%m-%d %H:%M:%S')
 
-            # Prepare batch statements for each table
-            batch_queries = {
-                'transactions': "INSERT INTO transactions (transaction_id, timestamp, customer_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)",
-                'transactions_by_employee': "INSERT INTO transactions_by_employee (employee_id, timestamp, transaction_id, customer_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)",
-                'transactions_by_payment': "INSERT INTO transactions_by_payment (payment_method, timestamp, transaction_id, customer_id, employee_id, total_amount) VALUES (?, ?, ?, ?, ?, ?)",
-                'transactions_by_date': "INSERT INTO transactions_by_date (date, timestamp, transaction_id, customer_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                'transactions_by_customer': "INSERT INTO transactions_by_customer (customer_id, timestamp, transaction_id, employee_id, total_amount, payment_method) VALUES (?, ?, ?, ?, ?, ?)"
+            # Use named parameters instead of ?
+            query = """
+            INSERT INTO transactions (transaction_id, timestamp, customer_id, employee_id, total_amount, payment_method)
+            VALUES (%(transaction_id)s, %(timestamp)s, %(customer_id)s, %(employee_id)s, %(total_amount)s, %(payment_method)s)
+            """
+
+            params = {
+                'transaction_id': int(parts[0]),
+                'timestamp': timestamp,
+                'customer_id': int(parts[2]),
+                'employee_id': int(parts[3]),
+                'total_amount': Decimal(parts[4]),
+                'payment_method': parts[5]
             }
 
-            # Insert to all tables
-            total_inserted = 0
-            for transaction in transactions:
-                # 1. Main transactions table
-                self.cassandra_session.execute(batch_queries['transactions'], [
-                    transaction['transaction_id'],
-                    transaction['timestamp'],
-                    transaction['customer_id'],
-                    transaction['employee_id'],
-                    transaction['total_amount'],
-                    transaction['payment_method']
-                ])
+            print(f"Named params: {params}", flush=True)
 
-                # 2. By employee table
-                self.cassandra_session.execute(batch_queries['transactions_by_employee'], [
-                    transaction['employee_id'],
-                    transaction['timestamp'],
-                    transaction['transaction_id'],
-                    transaction['customer_id'],
-                    transaction['total_amount'],
-                    transaction['payment_method']
-                ])
+            self.cassandra_session.execute(query, params)
+            print("Insert successful with named params!", flush=True)
 
-                # 3. By payment method table
-                self.cassandra_session.execute(batch_queries['transactions_by_payment'], [
-                    transaction['payment_method'],
-                    transaction['timestamp'],
-                    transaction['transaction_id'],
-                    transaction['customer_id'],
-                    transaction['employee_id'],
-                    transaction['total_amount']
-                ])
-
-                # 4. By date table
-                self.cassandra_session.execute(batch_queries['transactions_by_date'], [
-                    transaction['date'],
-                    transaction['timestamp'],
-                    transaction['transaction_id'],
-                    transaction['customer_id'],
-                    transaction['employee_id'],
-                    transaction['total_amount'],
-                    transaction['payment_method']
-                ])
-
-                # 5. By customer table
-                self.cassandra_session.execute(batch_queries['transactions_by_customer'], [
-                    transaction['customer_id'],
-                    transaction['timestamp'],
-                    transaction['transaction_id'],
-                    transaction['employee_id'],
-                    transaction['total_amount'],
-                    transaction['payment_method']
-                ])
-
-                total_inserted += 1
-
-            return {
-                'status': 'success',
-                'message': f'Successfully loaded {total_inserted} transactions to all 5 Cassandra tables',
-                'tables_populated': ['transactions', 'transactions_by_employee', 'transactions_by_payment', 'transactions_by_date', 'transactions_by_customer']
-            }
+            return {'status': 'success', 'message': 'Successfully inserted 1 transaction'}
 
         except Exception as e:
-            logger.error(f"Error loading transactions CSV: {e}")
+            print(f"Error: {e}", flush=True)
             return {'status': 'error', 'message': str(e)}
 
 class QueryScenarios:
@@ -429,10 +524,13 @@ def init_scenarios(mongo_db, cassandra_session):
 def load_transactions_data():
     """Load transactions CSV data to Cassandra tables"""
     if not data_loader:
+        print("Data loader not initialized")
         return jsonify({'error': 'Database connections not initialized'}), 500
 
     try:
         # Check if file was uploaded
+
+        print("Checking for uploaded file...")
         if 'file' not in request.files:
             return jsonify({'error': 'No file uploaded'}), 400
 
@@ -452,7 +550,7 @@ def load_transactions_data():
         return jsonify(result)
 
     except Exception as e:
-        logger.error(f"Error in load_transactions_data: {e}")
+        logger.error("Error in load_transactions_data: %s", str(e))
         return jsonify({'error': str(e)}), 500
 
 @data_bp.route('/data-status')
@@ -476,7 +574,7 @@ def data_status():
 
         for table in cassandra_tables:
             try:
-                result = query_scenarios.cassandra_session.execute(f"SELECT COUNT(*) FROM {table}")
+                result = query_scenarios.cassandra_session.execute("SELECT COUNT(*) FROM " + table)
                 status['cassandra'][table] = int(result.one().count)
             except Exception as e:
                 status['cassandra'][table] = f"Error: {str(e)}"
