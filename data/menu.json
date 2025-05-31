@@ -2,629 +2,463 @@
   {
     "menu_id": 1,
     "name": "Kopi Tubruk",
-    "category": "minuman",
-    "price": 41000,
-    "ingredients": [
-      "kopi toraja",
-      "gula aren"
-    ],
+    "category": "Coffee",
+    "price": 25000,
     "is_seasonal": false
   },
   {
     "menu_id": 2,
-    "name": "Es Timun Serut",
-    "category": "minuman",
-    "price": 17000,
-    "ingredients": [
-      "kurma",
-      "gula aren",
-      "santan"
-    ],
-    "is_seasonal": true
+    "name": "Kopi Susu",
+    "category": "Coffee",
+    "price": 28000,
+    "is_seasonal": false
   },
   {
     "menu_id": 3,
-    "name": "Kopi Aren",
-    "category": "minuman",
-    "price": 39000,
-    "ingredients": [
-      "kopi gayo",
-      "kopi arabika"
-    ],
+    "name": "Americano",
+    "category": "Coffee",
+    "price": 32000,
     "is_seasonal": false
   },
   {
     "menu_id": 4,
-    "name": "Kopi Jahe",
-    "category": "minuman",
-    "price": 43000,
-    "ingredients": [
-      "karamel",
-      "kopi toraja",
-      "kayu manis"
-    ],
+    "name": "Cappuccino",
+    "category": "Coffee",
+    "price": 38000,
     "is_seasonal": false
   },
   {
     "menu_id": 5,
-    "name": "Es Kopi Kelapa",
-    "category": "minuman",
-    "price": 20000,
-    "ingredients": [
-      "kayu manis",
-      "pandan",
-      "karamel"
-    ],
+    "name": "Latte",
+    "category": "Coffee",
+    "price": 42000,
     "is_seasonal": false
   },
   {
     "menu_id": 6,
-    "name": "Kopi Pandan",
-    "category": "minuman",
+    "name": "Espresso",
+    "category": "Coffee",
     "price": 30000,
-    "ingredients": [
-      "pandan",
-      "vanila",
-      "kopi robusta",
-      "susu"
-    ],
     "is_seasonal": false
   },
   {
     "menu_id": 7,
-    "name": "Es Cincau",
-    "category": "minuman",
-    "price": 28000,
-    "ingredients": [
-      "kurma",
-      "gula aren",
-      "santan"
-    ],
-    "is_seasonal": true
+    "name": "Kopi Gayo",
+    "category": "Coffee",
+    "price": 45000,
+    "is_seasonal": false
   },
   {
     "menu_id": 8,
-    "name": "Es Kelapa Muda",
-    "category": "minuman",
-    "price": 45000,
-    "ingredients": [
-      "kurma",
-      "gula aren",
-      "santan"
-    ],
-    "is_seasonal": true
+    "name": "Kopi Toraja",
+    "category": "Coffee",
+    "price": 48000,
+    "is_seasonal": false
   },
   {
     "menu_id": 9,
-    "name": "Americano",
-    "category": "minuman",
-    "price": 32000,
-    "ingredients": [
-      "jeruk",
-      "mint",
-      "madu"
-    ],
+    "name": "V60 Drip",
+    "category": "Coffee",
+    "price": 40000,
     "is_seasonal": false
   },
   {
     "menu_id": 10,
-    "name": "Es Kurma",
-    "category": "minuman",
-    "price": 38000,
-    "ingredients": [
-      "kurma",
-      "gula aren",
-      "santan"
-    ],
-    "is_seasonal": true
+    "name": "Cold Brew",
+    "category": "Coffee",
+    "price": 35000,
+    "is_seasonal": false
   },
   {
     "menu_id": 11,
-    "name": "Kopi Toraja",
-    "category": "minuman",
-    "price": 37000,
-    "ingredients": [
-      "vanila",
-      "kopi arabika",
-      "kopi luwak",
-      "gula aren"
-    ],
+    "name": "Affogato",
+    "category": "Coffee",
+    "price": 55000,
     "is_seasonal": false
   },
   {
     "menu_id": 12,
-    "name": "Kopi Gayo",
-    "category": "minuman",
-    "price": 15000,
-    "ingredients": [
-      "susu",
-      "vanila",
-      "kopi toraja",
-      "kopi luwak"
-    ],
+    "name": "Caramel Macchiato",
+    "category": "Coffee",
+    "price": 50000,
     "is_seasonal": false
   },
   {
     "menu_id": 13,
-    "name": "Kopi Luwak",
-    "category": "minuman",
-    "price": 41000,
-    "ingredients": [
-      "kopi gayo",
-      "kelapa",
-      "vanila"
-    ],
+    "name": "Teh Tarik",
+    "category": "Tea",
+    "price": 18000,
     "is_seasonal": false
   },
   {
     "menu_id": 14,
-    "name": "V60 Drip",
-    "category": "minuman",
-    "price": 35000,
-    "ingredients": [
-      "teh earl grey",
-      "teh hitam",
-      "lemon",
-      "teh putih"
-    ],
+    "name": "Teh Melati",
+    "category": "Tea",
+    "price": 15000,
     "is_seasonal": false
   },
   {
     "menu_id": 15,
-    "name": "Cold Brew",
-    "category": "minuman",
-    "price": 25000,
-    "ingredients": [
-      "jahe",
-      "teh earl grey",
-      "lemon"
-    ],
+    "name": "Earl Grey",
+    "category": "Tea",
+    "price": 22000,
     "is_seasonal": false
   },
   {
     "menu_id": 16,
-    "name": "Teh Tarik",
-    "category": "minuman",
-    "price": 35000,
-    "ingredients": [
-      "teh melati"
-    ],
+    "name": "Green Tea",
+    "category": "Tea",
+    "price": 20000,
     "is_seasonal": false
   },
   {
     "menu_id": 17,
-    "name": "Teh Melati",
-    "category": "minuman",
-    "price": 15000,
-    "ingredients": [
-      "madu",
-      "jahe",
-      "teh hijau",
-      "teh hitam"
-    ],
+    "name": "Teh Jahe",
+    "category": "Tea",
+    "price": 18000,
     "is_seasonal": false
   },
   {
     "menu_id": 18,
-    "name": "Teh Jahe",
-    "category": "minuman",
-    "price": 19000,
-    "ingredients": [
-      "jahe",
-      "lemon",
-      "teh hijau"
-    ],
+    "name": "Matcha Latte",
+    "category": "Tea",
+    "price": 38000,
     "is_seasonal": false
   },
   {
     "menu_id": 19,
-    "name": "Teh Lemon",
-    "category": "minuman",
-    "price": 45000,
-    "ingredients": [
-      "teh earl grey",
-      "teh melati",
-      "teh putih"
-    ],
+    "name": "Iced Tea",
+    "category": "Tea",
+    "price": 15000,
     "is_seasonal": false
   },
   {
     "menu_id": 20,
-    "name": "Teh Poci",
-    "category": "minuman",
-    "price": 26000,
-    "ingredients": [
-      "lemon",
-      "mint",
-      "teh hijau"
-    ],
+    "name": "Thai Tea",
+    "category": "Tea",
+    "price": 25000,
     "is_seasonal": false
   },
   {
     "menu_id": 21,
-    "name": "Jus Kurma",
-    "category": "minuman",
-    "price": 33000,
-    "ingredients": [
-      "kurma",
-      "gula aren",
-      "santan"
-    ],
-    "is_seasonal": true
+    "name": "Chamomile",
+    "category": "Tea",
+    "price": 24000,
+    "is_seasonal": false
   },
   {
     "menu_id": 22,
-    "name": "Teh Earl Grey",
-    "category": "minuman",
-    "price": 39000,
-    "ingredients": [
-      "teh earl grey",
-      "jeruk",
-      "madu"
-    ],
+    "name": "Fresh Orange",
+    "category": "Cold Drinks",
+    "price": 22000,
     "is_seasonal": false
   },
   {
     "menu_id": 23,
-    "name": "Teh Secang",
-    "category": "minuman",
-    "price": 19000,
-    "ingredients": [
-      "mint",
-      "teh hitam"
-    ],
-    "is_seasonal": true
+    "name": "Lemon Squash",
+    "category": "Cold Drinks",
+    "price": 20000,
+    "is_seasonal": false
   },
   {
     "menu_id": 24,
-    "name": "Es Teh",
-    "category": "minuman",
-    "price": 23000,
-    "ingredients": [
-      "teh earl grey",
-      "jeruk"
-    ],
+    "name": "Iced Chocolate",
+    "category": "Cold Drinks",
+    "price": 28000,
     "is_seasonal": false
   },
   {
     "menu_id": 25,
-    "name": "Es Jeruk",
-    "category": "minuman",
-    "price": 26000,
-    "ingredients": [
-      "teh earl grey",
-      "teh melati"
-    ],
+    "name": "Smoothie Bowl",
+    "category": "Cold Drinks",
+    "price": 45000,
     "is_seasonal": false
   },
   {
     "menu_id": 26,
-    "name": "Pisang Goreng",
-    "category": "makanan",
-    "price": 34000,
-    "ingredients": [
-      "telur",
-      "vanila",
-      "jeruk",
-      "gula",
-      "singkong"
-    ],
+    "name": "Milkshake Vanilla",
+    "category": "Cold Drinks",
+    "price": 35000,
     "is_seasonal": false
   },
   {
     "menu_id": 27,
-    "name": "Roti Bakar",
-    "category": "makanan",
-    "price": 30000,
-    "ingredients": [
-      "telur",
-      "gula",
-      "strawberry",
-      "mentega"
-    ],
+    "name": "Coconut Water",
+    "category": "Cold Drinks",
+    "price": 18000,
     "is_seasonal": false
   },
   {
     "menu_id": 28,
-    "name": "Croissant",
-    "category": "makanan",
-    "price": 29000,
-    "ingredients": [
-      "kayu manis",
-      "pandan",
-      "mentega",
-      "telur",
-      "keju"
-    ],
+    "name": "Fruit Punch",
+    "category": "Cold Drinks",
+    "price": 25000,
     "is_seasonal": false
   },
   {
     "menu_id": 29,
-    "name": "Donat",
-    "category": "makanan",
-    "price": 25000,
-    "ingredients": [
-      "vanila",
-      "ubi",
-      "singkong"
-    ],
+    "name": "Nasi Goreng",
+    "category": "Hot Food",
+    "price": 35000,
     "is_seasonal": false
   },
   {
     "menu_id": 30,
-    "name": "Klepon",
-    "category": "makanan",
-    "price": 33000,
-    "ingredients": [
-      "gula",
-      "pisang",
-      "mentega"
-    ],
+    "name": "Mie Ayam",
+    "category": "Hot Food",
+    "price": 32000,
     "is_seasonal": false
   },
   {
     "menu_id": 31,
-    "name": "Kolak Pisang",
-    "category": "makanan",
-    "price": 26000,
-    "ingredients": [
-      "tepung",
-      "gula aren",
-      "santan",
-      "pisang"
-    ],
-    "is_seasonal": true
+    "name": "Gado-Gado",
+    "category": "Hot Food",
+    "price": 28000,
+    "is_seasonal": false
   },
   {
     "menu_id": 32,
-    "name": "Brownies",
-    "category": "makanan",
-    "price": 27000,
-    "ingredients": [
-      "kayu manis",
-      "gula",
-      "pandan"
-    ],
+    "name": "Rendang Rice",
+    "category": "Hot Food",
+    "price": 45000,
     "is_seasonal": false
   },
   {
     "menu_id": 33,
-    "name": "Kue Lapis",
-    "category": "makanan",
-    "price": 24000,
-    "ingredients": [
-      "jeruk",
-      "tepung",
-      "telur",
-      "pandan",
-      "singkong"
-    ],
+    "name": "Chicken Katsu",
+    "category": "Hot Food",
+    "price": 42000,
     "is_seasonal": false
   },
   {
     "menu_id": 34,
-    "name": "Pancake",
-    "category": "makanan",
-    "price": 28000,
-    "ingredients": [
-      "kelapa",
-      "keju",
-      "jeruk"
-    ],
+    "name": "Beef Teriyaki",
+    "category": "Hot Food",
+    "price": 48000,
     "is_seasonal": false
   },
   {
     "menu_id": 35,
-    "name": "Waffle",
-    "category": "makanan",
-    "price": 32000,
-    "ingredients": [
-      "tepung",
-      "pandan",
-      "singkong",
-      "gula"
-    ],
+    "name": "Nasi Gudeg",
+    "category": "Hot Food",
+    "price": 38000,
     "is_seasonal": false
   },
   {
     "menu_id": 36,
-    "name": "Nagasari",
-    "category": "makanan",
-    "price": 20000,
-    "ingredients": [
-      "kacang",
-      "ubi",
-      "kayu manis",
-      "gula"
-    ],
+    "name": "Soto Ayam",
+    "category": "Hot Food",
+    "price": 30000,
     "is_seasonal": false
   },
   {
     "menu_id": 37,
-    "name": "Kue Nastar",
-    "category": "makanan",
-    "price": 21000,
-    "ingredients": [
-      "tepung",
-      "gula aren",
-      "santan",
-      "pisang"
-    ],
-    "is_seasonal": true
+    "name": "Bakso",
+    "category": "Hot Food",
+    "price": 25000,
+    "is_seasonal": false
   },
   {
     "menu_id": 38,
-    "name": "Risoles",
-    "category": "makanan",
-    "price": 27000,
-    "ingredients": [
-      "vanila",
-      "telur",
-      "kacang",
-      "pisang",
-      "tepung"
-    ],
+    "name": "Pasta Carbonara",
+    "category": "Hot Food",
+    "price": 55000,
     "is_seasonal": false
   },
   {
     "menu_id": 39,
-    "name": "Lemper",
-    "category": "makanan",
-    "price": 21000,
-    "ingredients": [
-      "kelapa",
-      "mentega",
-      "vanila",
-      "jeruk"
-    ],
+    "name": "Fried Rice Special",
+    "category": "Hot Food",
+    "price": 40000,
     "is_seasonal": false
   },
   {
     "menu_id": 40,
-    "name": "Pastel",
-    "category": "makanan",
-    "price": 23000,
-    "ingredients": [
-      "kacang",
-      "keju",
-      "singkong",
-      "mentega"
-    ],
+    "name": "Caesar Salad",
+    "category": "Cold Food",
+    "price": 35000,
     "is_seasonal": false
   },
   {
     "menu_id": 41,
-    "name": "Bika Ambon Mini",
-    "category": "makanan",
-    "price": 22000,
-    "ingredients": [
-      "pisang",
-      "kelapa"
-    ],
+    "name": "Club Sandwich",
+    "category": "Cold Food",
+    "price": 32000,
     "is_seasonal": false
   },
   {
     "menu_id": 42,
-    "name": "Kue Kastengel",
-    "category": "makanan",
+    "name": "Fruit Salad",
+    "category": "Cold Food",
     "price": 25000,
-    "ingredients": [
-      "tepung",
-      "gula aren",
-      "santan",
-      "pisang"
-    ],
-    "is_seasonal": true
+    "is_seasonal": false
   },
   {
     "menu_id": 43,
-    "name": "Martabak Mini",
-    "category": "makanan",
-    "price": 31000,
-    "ingredients": [
-      "singkong",
-      "kacang",
-      "tepung",
-      "strawberry",
-      "keju",
-      "kayu manis"
-    ],
+    "name": "Sushi Roll",
+    "category": "Cold Food",
+    "price": 45000,
     "is_seasonal": false
   },
   {
     "menu_id": 44,
-    "name": "Pie Buah",
-    "category": "makanan",
-    "price": 27000,
-    "ingredients": [
-      "gula",
-      "telur",
-      "mentega",
-      "kacang",
-      "strawberry"
-    ],
+    "name": "Cold Pasta",
+    "category": "Cold Food",
+    "price": 38000,
     "is_seasonal": false
   },
   {
     "menu_id": 45,
-    "name": "Puding Karamel",
-    "category": "makanan",
-    "price": 32000,
-    "ingredients": [
-      "kelapa",
-      "mentega",
-      "pisang"
-    ],
+    "name": "Sandwich Tuna",
+    "category": "Cold Food",
+    "price": 28000,
     "is_seasonal": false
   },
   {
     "menu_id": 46,
-    "name": "Singkong Goreng",
-    "category": "makanan",
-    "price": 22000,
-    "ingredients": [
-      "kacang",
-      "kelapa",
-      "jeruk",
-      "pandan"
-    ],
+    "name": "Chocolate Cake",
+    "category": "Desserts",
+    "price": 32000,
     "is_seasonal": false
   },
   {
     "menu_id": 47,
-    "name": "Lumpia",
-    "category": "makanan",
-    "price": 35000,
-    "ingredients": [
-      "keju",
-      "gula",
-      "kacang",
-      "jeruk",
-      "kayu manis"
-    ],
+    "name": "Tiramisu",
+    "category": "Desserts",
+    "price": 38000,
     "is_seasonal": false
   },
   {
     "menu_id": 48,
-    "name": "Serabi",
-    "category": "makanan",
-    "price": 26000,
-    "ingredients": [
-      "mentega",
-      "keju",
-      "ubi",
-      "telur",
-      "kacang",
-      "strawberry"
-    ],
+    "name": "Ice Cream",
+    "category": "Desserts",
+    "price": 22000,
     "is_seasonal": false
   },
   {
     "menu_id": 49,
-    "name": "Dadar Gulung",
-    "category": "makanan",
-    "price": 34000,
-    "ingredients": [
-      "strawberry",
-      "coklat",
-      "tepung",
-      "singkong"
-    ],
+    "name": "Brownies",
+    "category": "Desserts",
+    "price": 25000,
     "is_seasonal": false
   },
   {
     "menu_id": 50,
-    "name": "Kue Cucur",
-    "category": "makanan",
-    "price": 22000,
-    "ingredients": [
-      "kayu manis",
-      "telur",
-      "ubi",
-      "coklat",
-      "mentega",
-      "singkong"
-    ],
+    "name": "Cheesecake",
+    "category": "Desserts",
+    "price": 35000,
     "is_seasonal": false
+  },
+  {
+    "menu_id": 51,
+    "name": "Pudding",
+    "category": "Desserts",
+    "price": 20000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 52,
+    "name": "Donut",
+    "category": "Desserts",
+    "price": 18000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 53,
+    "name": "Croissant",
+    "category": "Desserts",
+    "price": 24000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 54,
+    "name": "French Fries",
+    "category": "Snacks",
+    "price": 18000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 55,
+    "name": "Onion Rings",
+    "category": "Snacks",
+    "price": 20000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 56,
+    "name": "Chicken Wings",
+    "category": "Snacks",
+    "price": 28000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 57,
+    "name": "Spring Rolls",
+    "category": "Snacks",
+    "price": 22000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 58,
+    "name": "Nachos",
+    "category": "Snacks",
+    "price": 25000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 59,
+    "name": "Garlic Bread",
+    "category": "Snacks",
+    "price": 16000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 60,
+    "name": "Potato Wedges",
+    "category": "Snacks",
+    "price": 20000,
+    "is_seasonal": false
+  },
+  {
+    "menu_id": 61,
+    "name": "Kolak Pisang",
+    "category": "Desserts",
+    "price": 22000,
+    "is_seasonal": true
+  },
+  {
+    "menu_id": 62,
+    "name": "Es Timun Serut",
+    "category": "Cold Drinks",
+    "price": 18000,
+    "is_seasonal": true
+  },
+  {
+    "menu_id": 63,
+    "name": "Bubur Sumsum",
+    "category": "Desserts",
+    "price": 20000,
+    "is_seasonal": true
+  },
+  {
+    "menu_id": 64,
+    "name": "Es Kelapa Muda",
+    "category": "Cold Drinks",
+    "price": 15000,
+    "is_seasonal": true
+  },
+  {
+    "menu_id": 65,
+    "name": "Ketupat Sayur",
+    "category": "Hot Food",
+    "price": 32000,
+    "is_seasonal": true
+  },
+  {
+    "menu_id": 66,
+    "name": "Opor Ayam",
+    "category": "Hot Food",
+    "price": 45000,
+    "is_seasonal": true
   }
 ]

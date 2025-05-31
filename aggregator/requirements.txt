@@ -1,40 +1,22 @@
-# aggregator/requirements.txt
-# Flask web framework
-Flask
-Werkzeug
+# Flask Aggregator Service Dependencies
+
+# Web framework
+Flask==3.0.0
+Flask-CORS==4.0.0
 
 # Database drivers
-pymongo
-cassandra-driver
+pymongo==4.6.1
+cassandra-driver==3.28.0
+redis==5.0.1
 
-# Caching
-redis
+# API and serialization
+flask-restx==1.3.0
+marshmallow==3.20.1
 
-# Environment management
-python-dotenv
+# Performance and monitoring
+gunicorn==21.2.0
+python-json-logger==2.0.7
 
-# HTTP requests (if needed for external APIs)
-requests
-
-# Data processing
-pandas
-numpy
-
-# Date/time utilities
-python-dateutil
-
-# File handling
-Werkzeug
-
-# Logging (built-in, but some extras)
-colorlog
-
-# Development/testing utilities
-pytest
-pytest-flask
-
-# CORS support (if frontend needed)
-Flask-CORS
-
-# JSON handling improvements
-ujson
+# Utilities
+python-dateutil==2.8.2
+requests==2.31.0

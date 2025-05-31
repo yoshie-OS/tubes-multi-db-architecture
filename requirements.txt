@@ -1,0 +1,35 @@
+# Kedai Kopi Dynamic Query System - Updated Dependencies
+# Compatible with Python 3.11+ for optimal Cassandra driver support
+
+# Core Database Drivers
+pymongo==4.8.0                 # MongoDB driver with latest bug fixes
+cassandra-driver==3.29.1       # Apache Cassandra driver (latest stable)
+redis==5.0.7                   # Redis driver with enhanced features
+
+# Data Processing & Analysis
+pandas==2.2.2                  # Data manipulation and analysis
+numpy==1.26.4                  # Numerical operations (pandas dependency)
+
+# Statistical Analysis & Visualization
+matplotlib==3.8.4              # Professional chart generation
+scipy==1.13.1                  # Statistical functions and analysis
+
+# Web Framework (for aggregator service)
+Flask==3.0.3                   # Lightweight web framework
+Flask-CORS==4.0.1              # Cross-origin resource sharing
+
+# Development & Utilities
+python-dateutil==2.9.0         # Enhanced date parsing utilities
+colorama==0.4.6                # Cross-platform colored terminal output
+requests==2.32.3               # HTTP library for API testing
+
+# Performance & Monitoring
+psutil==5.9.8                  # System and process utilities
+
+# Optional: Enhanced CLI Experience
+rich==13.7.1                   # Rich text and beautiful formatting
+click==8.1.7                   # Enhanced command line interface
+
+# Testing & Development (optional)
+pytest==8.2.2                  # Testing framework
+pytest-cov==5.0.0              # Coverage reporting
