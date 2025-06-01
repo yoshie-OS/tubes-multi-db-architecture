@@ -192,6 +192,7 @@ class PerformanceAnalyzer:
             full_query = f"{base_query} WHERE {where_clause}"
 
             # FIXED LOGIC: Add ALLOW FILTERING based on table structure and optimization setting
+            # CORRECTED LOGIC: Determine when to use ALLOW FILTERING
             table_schema = self.schema_inspector.cassandra_schema.get(table_name, {})
             partition_keys = table_schema.get('partition_keys', [])
 
@@ -199,17 +200,15 @@ class PerformanceAnalyzer:
             filters = query_config.get('filters', {})
             has_partition_key_filter = any(pk in filters for pk in partition_keys)
 
-            # Add ALLOW FILTERING if:
-            # 1. Not using optimization, OR
-            # 2. Using main transactions table, OR
-            # 3. Not filtering by partition key
-            needs_allow_filtering = (
-                not use_optimization or
-                table_name == 'transactions' or
-                not has_partition_key_filter
-            )
-
-            if needs_allow_filtering:
+            # CORRECTED: ALLOW FILTERING rules
+            if use_optimization:
+                # OPTIMIZED: Only use ALLOW FILTERING if we DON'T have partition key
+                if not has_partition_key_filter:
+                    # If no partition key, we need ALLOW FILTERING even in optimized mode
+                    full_query += " ALLOW FILTERING"
+                    logger.warning(f"Optimized query still needs ALLOW FILTERING - no partition key filter on {table_name}")
+            else:
+                # UNOPTIMIZED: Always use ALLOW FILTERING
                 full_query += " ALLOW FILTERING"
 
         else:

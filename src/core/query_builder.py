@@ -244,29 +244,42 @@ class QueryBuilder:
                 "Optimization: Using ALLOW FILTERING (flexible but slower)"
             )
 
-        # Build WHERE clause
+        # Build WHERE clause - SIMPLIFIED AND FIXED
         where_conditions = []
-        params = {}
+        params = []
 
         all_filters = partition_key_filters + clustering_key_filters + regular_filters
+
+        # FIXED: Simple parameter building
         for filter_obj in all_filters:
-            if filter_obj.operator in self.cassandra_operators:
-                condition = self.cassandra_operators[filter_obj.operator](
-                    filter_obj.field, filter_obj.value
-                )
-                where_conditions.append(condition)
+            if filter_obj.operator == '=':
+                where_conditions.append(f"{filter_obj.field} = %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
+            elif filter_obj.operator == '!=':
+                where_conditions.append(f"{filter_obj.field} != %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
+            elif filter_obj.operator == '>':
+                where_conditions.append(f"{filter_obj.field} > %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
+            elif filter_obj.operator == '<':
+                where_conditions.append(f"{filter_obj.field} < %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
+            elif filter_obj.operator == '>=':
+                where_conditions.append(f"{filter_obj.field} >= %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
+            elif filter_obj.operator == '<=':
+                where_conditions.append(f"{filter_obj.field} <= %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
+            else:
+                # Default to equality for unknown operators
+                where_conditions.append(f"{filter_obj.field} = %s")
+                params.append(self._convert_value_for_cassandra(filter_obj.value))
 
-                # Handle parameter values properly
-                if filter_obj.operator == 'in':
-                    values = filter_obj.value if isinstance(filter_obj.value, list) else [filter_obj.value]
-                    params[f'{filter_obj.field}_values'] = values
-                else:
-                    params[filter_obj.field] = self._convert_value_for_cassandra(filter_obj.value)
+            query_config['query_explanation'].append(
+                f"Filter: {filter_obj.field} {filter_obj.operator} {filter_obj.value}"
+            )
 
-                query_config['query_explanation'].append(
-                    f"Filter: {filter_obj.field} {filter_obj.operator} {filter_obj.value}"
-                )
-
+        # Set final query components
         query_config['where_clause'] = ' AND '.join(where_conditions) if where_conditions else None
         query_config['params'] = params
         query_config['filters'] = {f.field: f.value for f in filters}
