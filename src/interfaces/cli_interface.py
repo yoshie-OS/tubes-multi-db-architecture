@@ -529,6 +529,19 @@ class CLIInterface:
             # Original single-run analysis
             print("Running single performance comparison...")
             comparison = self.performance_analyzer.compare_optimization_scenarios(query_config)
+            # ADD THESE DEBUG LINES:
+            print(f"\n🔍 DEBUG INFO:")
+            print(f"   Optimized Success: {comparison.optimized_result.success}")
+            print(f"   Optimized Count: {comparison.optimized_result.result_count}")
+            print(f"   Optimized Error: {comparison.optimized_result.error_message}")
+            print(f"   Unoptimized Success: {comparison.unoptimized_result.success}")
+            print(f"   Unoptimized Count: {comparison.unoptimized_result.result_count}")
+            print(f"   Unoptimized Error: {comparison.unoptimized_result.error_message}")
+
+            if comparison.optimized_result.results:
+                print(f"   Sample Result: {comparison.optimized_result.results[0]}")
+            else:
+                print(f"   No results returned")
             self._display_performance_comparison_with_results(comparison)
 
             return {
